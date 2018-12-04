@@ -61,7 +61,7 @@ public class ElizaServerTest {
 
     @Test(timeout = 1000)
     public void onChat() throws DeploymentException, IOException, URISyntaxException, InterruptedException {
-        CountDownLatch latch = new CountDownLatch(4);
+        CountDownLatch latch = new CountDownLatch(5);
         List<String> list = new ArrayList<>();
         ClientEndpointConfig configuration = ClientEndpointConfig.Builder.create().build();
         ClientManager client = ClientManager.createClient();
