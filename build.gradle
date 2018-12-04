@@ -1,6 +1,23 @@
+buildscript {
+	ext.spring_boot_version = '2.0.5.RELEASE'
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
+	}
+}
+
+plugins {
+	id "io.spring.dependency-management" version "1.0.6.RELEASE"
+	id 'org.springframework.boot' version '2.0.5.RELEASE'
+}
+
 apply plugin: "eclipse"
 apply plugin: "java"
 apply plugin: "idea"
+apply plugin: 'org.springframework.boot'
+
 
 repositories {
 	mavenCentral()
@@ -10,6 +27,16 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+
+	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile 'org.glassfish.tyrus:tyrus-container-grizzly-server:1.14'
-    testCompile 'junit:junit:4.11'
+	// https://mvnrepository.com/artifact/org.springframework/spring-websocket
+	compile("org.springframework.boot:spring-boot-starter-websocket")
+	compile("org.webjars:sockjs-client:1.0.2")
+	compile("org.webjars:stomp-websocket:2.3.3")
+
+
+
+	testCompile 'junit:junit:4.12'
+	testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
