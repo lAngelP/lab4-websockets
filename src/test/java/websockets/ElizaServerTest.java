@@ -56,7 +56,7 @@ public class ElizaServerTest {
 
     @Test(timeout = 1000)
     public void onChat() throws DeploymentException, IOException, URISyntaxException, InterruptedException {
-        CountDownLatch latch = new CountDownLatch(4);
+        CountDownLatch latch = new CountDownLatch(5);
         List<String> list = new ArrayList<>();
         ClientEndpointConfig configuration = ClientEndpointConfig.Builder.create().build();
         ClientManager client = ClientManager.createClient();
@@ -66,7 +66,7 @@ public class ElizaServerTest {
         latch.await();
 
         //We have the first 3 messages sent by Eliza and then the because response.
-        assertEquals(4, list.size());
+        assertEquals(5, list.size());
         assertEquals("Is that the real reason?", list.get(3));
     }
 
